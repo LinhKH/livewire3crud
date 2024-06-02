@@ -18,11 +18,11 @@ class CreateCustomer extends Component
     public function save()
     {
         $validated = $this->validate([
-            'name' =>'required|max:255',
-            'email' =>'required|email|unique:customers',
-            'phone' =>'required|unique:customers'
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:customers',
+            'phone' => 'required|unique:customers'
         ]);
-        
+
         Customer::create($validated);
         $this->reset();
         $this->js("alert('customer created succesfully!')");
